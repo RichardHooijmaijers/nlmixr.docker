@@ -25,7 +25,7 @@ Take into account that the first time doing this, it will donwload all applicabl
 The following command can be issued to run the container:
 
 ```bash
-docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixrdev:V0.1
+docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixrdev:V0.2
 ```
 
 Some explanation for the command:
