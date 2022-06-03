@@ -1,7 +1,9 @@
 # nlmixr.docker
 
-This repository includes the docker file(s) for nlmixr. There are two types of docker images being created, a development version and a production version.
-The development version installs the latest github version for RxODE and nlmixr while the development version will install the latest CRAN versions of all packages (if available). 
+This repository includes the docker file(s) for nlmixr. In general, there are two types of docker images being created, a development version and a production version.
+The development version installs the latest github version for essential packages while the development version will install the latest CRAN versions of all packages (if available).
+Currently the 'prod' and 'dev' folders include the image files for `nlmixr` and `RxODE`. However these locations will not be updated in the future. The `nlmixr2` version (prod.nlmixr2)
+is the way to go and will be actively maintained
 
 ## Getting started
 
@@ -25,7 +27,7 @@ Take into account that the first time doing this, it will donwload all applicabl
 It is strongly advised to only install the production version from dockerhub. The development version installs the latest github version of the packages and is therefore likely not up-to-date when installing from dockerhub. This version will also not be maintained on dockerhub in the future (see following section when you want to run the development version). To directly run from dockerhub, the following command can be issued to run the container:
 
 ```bash
-docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixrprod:V0.3
+docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr2/nlmixr2prod:V0.1
 ```
 
 Some explanation for the command:

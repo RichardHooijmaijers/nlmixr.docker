@@ -13,13 +13,6 @@ RUN apt-get clean all && \
 		liblzma-dev \
 		libglpk40 \
 		libgit2-28 \
-    python \
-    python3-sympy \
-    python3-scipy \
-    python-setuptools \
-    python3-pip \
-    python-dev \
-    python3-dev \
     xclip \
     libcurl4-openssl-dev \
     libssl-dev \
@@ -35,8 +28,10 @@ RUN apt-get clean all && \
 	apt-get purge && \
 	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN Rscript -e "install.packages(c('tidyverse','devtools','xpose','tidyr','shiny','shinydashboard','shinyBS','shinyAce','gridExtra','collapsibleTree','DT','R3port','RCurl','vpc','n1qn1','reticulate','flextable','rmarkdown'));"
-RUN Rscript -e "install.packages(c('RxODE','nlmixr','xpose.nlmixr'), INSTALL_opts = '--install-tests', repos = 'http://cran.us.r-project.org')"
+RUN Rscript -e "install.packages(c('tidyverse','devtools','xpose','tidyr','shiny','shinydashboard','shinyBS','shinyAce','gridExtra','collapsibleTree','DT','R3port','RCurl','vpc','n1qn1','reticulate','flextable','rmarkdown','patchwork'));"
+RUN Rscript -e "install.packages(c('rxode2','nlmixr2'), INSTALL_opts = '--install-tests')"
 RUN Rscript -e "devtools::install_github('richardhooijmaijers/shinyMixR')"
+RUN Rscript -e "devtools::install_github('nlmixr2/xpose.nlmixr')"
+RUN Rscript -e "devtools::install_github('ggPMXdevelopment/ggPMX')"
 
 COPY examples /home/rstudio/examples
