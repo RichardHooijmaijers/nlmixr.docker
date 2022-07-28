@@ -27,7 +27,7 @@ Take into account that the first time doing this, it will donwload all applicabl
 It is strongly advised to only install the production version from dockerhub. The development version installs the latest github version of the packages and is therefore likely not up-to-date when installing from dockerhub. This version will also not be maintained on dockerhub in the future (see following section when you want to run the development version). To directly run from dockerhub, the following command can be issued to run the container:
 
 ```bash
-docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr2/nlmixr2prod:V0.1
+docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.1
 ```
 
 Some explanation for the command:
