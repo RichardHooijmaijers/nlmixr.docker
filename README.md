@@ -50,7 +50,7 @@ To build a file on your local system, the following method was proposed by Bill 
 
 ```bash
 git clone https://github.com/RichardHooijmaijers/nlmixr.docker.git
-cd nlmixr.docker/dev
+cd nlmixr.docker/prod.nlmixr2
 docker build . -t nlmixr2prod
 ```
 It is also possible to build directly from GitHub, using:
