@@ -2,8 +2,8 @@
 # can be submitted and that all packages work as expected
 
 # Step 1: load applicable packages
-library(nlmixr)
-library(xpose.nlmixr)
+library(nlmixr2)
+library(xpose.nlmixr2)
 library(shinyMixR)
 
 # Step 2: run a simple nlmixr model
@@ -25,7 +25,7 @@ theo_mdl <- function() {
   })
 }
 
-fit <- nlmixr(theo_mdl,theo_sd,est="saem")
+fit <- nlmixr2(theo_mdl,theo_sd,est="saem")
 fit
 
 # Step 3: Create plots with xpose.nlmixr

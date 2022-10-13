@@ -27,7 +27,7 @@ Take into account that the first time doing this, it will donwload all applicabl
 It is strongly advised to only install the production version from dockerhub. The development version installs the latest github version of the packages and is therefore likely not up-to-date when installing from dockerhub. This version will also not be maintained on dockerhub in the future (see following section when you want to run the development version). To directly run from dockerhub, the following command can be issued to run the container:
 
 ```bash
-docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.1
+docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.2
 ```
 
 Some explanation for the command:
@@ -51,29 +51,21 @@ To build a file on your local system, the following method was proposed by Bill 
 ```bash
 git clone https://github.com/RichardHooijmaijers/nlmixr.docker.git
 cd nlmixr.docker/dev
-docker build . -t nlmixrdev
+docker build . -t nlmixr2prod
 ```
 It is also possible to build directly from GitHub, using:
 
 ```bash
 docker build \
   https://github.com/RichardHooijmaijers/nlmixr.docker.git \
-  -t nlmixrdev
+  -t nlmixr2prod
 ```
 
 Once the docker is build, it can be started as indicated in the previous section.
 
 ## Test the installation
 
-It is possible to test if all packages are running correctly by downloading and running the test script:
-
-```{r eval=FALSE}
-# install.packages("RCurl")
-library(RCurl)
-url <- "https://raw.githubusercontent.com/nlmixrdevelopment/nlmixr/master/build/test_install.R"
-script <- getURL(url)
-eval(parse(text = script))
-```
+Using the latest version of `nlmixr2` it is no longer necessary to test the installation. The main reason is that there are no more dependencies of python and the package installs like any other R package.
 
 ## Stop the container
 
