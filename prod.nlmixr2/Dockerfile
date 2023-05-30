@@ -12,7 +12,7 @@ RUN apt-get clean all && \
 		libbz2-dev \
 		liblzma-dev \
 		libglpk40 \
-		libgit2-28 \
+		libgit2-dev \
     xclip \
     libcurl4-openssl-dev \
     libssl-dev \
