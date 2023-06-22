@@ -1,2 +1,2 @@
 #!/bin/bash
-Rscript -e "pak::pak(c('vpc', 'PKNCA'))"
+Rscript -e "pak::pak(c('tidyvpc', 'PKNCA', 'vpc'))"
