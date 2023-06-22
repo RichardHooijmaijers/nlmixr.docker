@@ -27,8 +27,8 @@ RUN apt-get clean all && \
    apt-get purge && \
    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN Rscript -e "install.packages(c('tidyverse','devtools','xpose','shiny','shinydashboard','shinyBS','shinyAce','gridExtra','collapsibleTree','DT','R3port','RCurl','vpc','n1qn1','reticulate','flextable','rmarkdown','patchwork'));"
-RUN Rscript -e "install.packages(c('rxode2','nlmixr2','xpose.nlmixr2','ggPMX'), INSTALL_opts = '--install-tests' )"
+RUN Rscript -e "install.packages(c('tidyverse','xpose','RCurl','vpc','flextable','rmarkdown','patchwork'))"
+RUN Rscript -e "install.packages(c('rxode2','nlmixr2','xpose.nlmixr2','ggPMX'), INSTALL_opts = '--install-tests')"
 RUN Rscript -e "devtools::install_github('richardhooijmaijers/shinyMixR')"
 
 COPY examples /home/rstudio/examples
