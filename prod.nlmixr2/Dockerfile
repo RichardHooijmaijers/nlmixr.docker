@@ -27,8 +27,12 @@ RUN apt-get clean all && \
    apt-get purge && \
    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN Rscript -e "install.packages(c('tidyverse','xpose','RCurl','vpc','flextable','rmarkdown','patchwork'))"
-RUN Rscript -e "install.packages(c('nlmixr2','xpose.nlmixr2','ggPMX'), INSTALL_opts = '--install-tests')"
-RUN Rscript -e "devtools::install_github('richardhooijmaijers/shinyMixR')"
+COPY *.R *.sh /srv/r-installation
+
+# Run all files ending with "sh"; then cleanup any apt installation remnants
+RUN run-parts --exit-on-error --verbose --regex '.*sh' /srv/r-installation && \
+    apt-get clean all && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY examples /home/rstudio/examples
