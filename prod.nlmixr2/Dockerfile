@@ -4,26 +4,26 @@ RUN apt-get clean all && \
     apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
-      libhdf5-dev \
-      libxml2-dev \
-      libpng-dev \
-      libxt-dev \
-      zlib1g-dev \
+      cmake \
       libbz2-dev \
-      liblzma-dev \
-      libglpk40 \
-      libgit2-dev \
-      xclip \
+      libcairo2-dev \
       libcurl4-openssl-dev \
+      libgit2-dev \
+      libglpk40 \
+      libgmp-dev \
+      libhdf5-dev \
+      liblzma-dev \
+      libmpc-dev \
+      libmpfr-dev \
+      libpng-dev \
       libssl-dev \
-      zlib1g-dev \
       libudunits2-dev \
       libxml2-dev \
-      libcairo2-dev \
-      cmake \
-      libgmp-dev \
-      libmpfr-dev \
-      libmpc-dev \
+      libxml2-dev \
+      libxt-dev \
+      xclip \
+      zlib1g-dev \
+      zlib1g-dev \
    && \
    apt-get clean all && \
    apt-get purge && \
