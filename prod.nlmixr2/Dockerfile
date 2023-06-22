@@ -27,6 +27,7 @@ RUN apt-get clean all && \
    apt-get purge && \
    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN mkdir -p /srv/r-installation
 COPY *.R *.sh /srv/r-installation
 
 # Run all files ending with "sh"; then cleanup any apt installation remnants
