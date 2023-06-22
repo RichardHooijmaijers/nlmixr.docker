@@ -19,10 +19,8 @@ RUN apt-get clean all && \
       libssl-dev \
       libudunits2-dev \
       libxml2-dev \
-      libxml2-dev \
       libxt-dev \
       xclip \
-      zlib1g-dev \
       zlib1g-dev \
    && \
    apt-get clean all && \
