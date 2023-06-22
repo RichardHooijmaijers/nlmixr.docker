@@ -31,7 +31,9 @@ RUN mkdir -p /srv/r-installation
 COPY *.R *.sh /srv/r-installation
 
 # Run all files ending with "sh"; then cleanup any apt installation remnants
-RUN run-parts --exit-on-error --verbose --regex '.*sh' /srv/r-installation && \
+RUN cd /srv/r-installation && \
+    chmod 755 *sh && \
+    run-parts --exit-on-error --verbose --regex '.*sh' /srv/r-installation && \
     apt-get clean all && \
     apt-get purge && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
