@@ -92,3 +92,15 @@ On windows it can take some more effort to mount local drives. The following met
 You now have access to other directories in /home/rstudio in addition to examples and kitematic (i.e. analysis, data, models, scripts, ShinyMixR).
 
 If you are using Docker Toolbox on Windows 7, the Docker Machine IP instead of localhost should be used. For example, http://192.168.99.100:8787/. To find the IP address, the `ipconfig` command can be used. In windows it might be necessary to stop the container using powershell, otherwise the container can be stopped using task manager.
+
+## Customization
+
+The Dockerfile setup is easy to customize with your own Docker image
+requirements.  To add or remove packages or other parts of the setup, add
+additional bash scripts in the `prod.nlmixr2` directory ending with `.sh`.  All
+files ending in `.sh` in that directory are run in alphabetical order, so start
+the filename with a number to insert it in the correct order.
+
+The reason that the files are setup in this way is so that the installation of
+required packages for the operating system (with `apt-get`) can be linked to the
+installation of the R packages.
