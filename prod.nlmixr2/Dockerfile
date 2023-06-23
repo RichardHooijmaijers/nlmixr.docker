@@ -1,35 +1,41 @@
 FROM rocker/verse:latest
 
 RUN apt-get clean all && \
-	apt-get update && \
-	apt-get upgrade -y && \
-	apt-get install -y \
-		libhdf5-dev \
-		libxml2-dev \
-		libpng-dev \
-		libxt-dev \
-		zlib1g-dev \
-		libbz2-dev \
-		liblzma-dev \
-		libglpk40 \
-		libgit2-dev \
-    xclip \
-    libcurl4-openssl-dev \
-    libssl-dev \
-    zlib1g-dev \
-    libudunits2-dev \
-    libxml2-dev \
-    libcairo2-dev \
-    cmake \
-    libgmp-dev \
-    libmpfr-dev \
-    libmpc-dev \
-	&& apt-get clean all && \
-	apt-get purge && \
-	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+      cmake \
+      libbz2-dev \
+      libcairo2-dev \
+      libcurl4-openssl-dev \
+      libgit2-dev \
+      libglpk40 \
+      libgmp-dev \
+      libhdf5-dev \
+      liblzma-dev \
+      libmpc-dev \
+      libmpfr-dev \
+      libpng-dev \
+      libssl-dev \
+      libudunits2-dev \
+      libxml2-dev \
+      libxt-dev \
+      xclip \
+      zlib1g-dev \
+   && \
+   apt-get clean all && \
+   apt-get purge && \
+   rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN Rscript -e "install.packages(c('tidyverse','devtools','xpose','tidyr','shiny','shinydashboard','shinyBS','shinyAce','gridExtra','collapsibleTree','DT','R3port','RCurl','vpc','n1qn1','reticulate','flextable','rmarkdown','patchwork'));"
-RUN Rscript -e "install.packages(c('rxode2','nlmixr2','xpose.nlmixr2','ggPMX'), INSTALL_opts = '--install-tests' )"
-RUN Rscript -e "devtools::install_github('richardhooijmaijers/shinyMixR')"
+RUN mkdir -p /srv/r-installation
+COPY *.R *.sh /srv/r-installation
+
+# Run all files ending with "sh"; then cleanup any apt installation remnants
+RUN cd /srv/r-installation && \
+    chmod 755 *sh && \
+    run-parts --exit-on-error --verbose --regex '.*sh' /srv/r-installation && \
+    apt-get clean all && \
+    apt-get purge && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY examples /home/rstudio/examples
