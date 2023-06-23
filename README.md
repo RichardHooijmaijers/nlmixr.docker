@@ -1,13 +1,11 @@
 # nlmixr.docker
 
-This repository includes the docker file(s) for nlmixr. In general, there are two types of docker images being created, a development version and a production version.
-The development version installs the latest github version for essential packages while the development version will install the latest CRAN versions of all packages (if available).
-Currently the 'prod' and 'dev' folders include the image files for `nlmixr` and `RxODE`. However these locations will not be updated in the future. The `nlmixr2` version (prod.nlmixr2)
-is the way to go and will be actively maintained
+This repository includes the docker file(s) for `nlmixr2`. Currently there is a only a docker images for the production version.
+This version will install the latest CRAN versions of all packages (if available).
 
 ## Getting started
 
-Before working with the nlmixr docker file, the docker software should be installed. An installer is available for all major operating systems:
+Before working with the docker file, the docker software should be installed. An installer is available for all major operating systems:
 
 - windows: <https://docs.docker.com/docker-for-windows/install/>
 - mac: <https://docs.docker.com/docker-for-mac/install/>
@@ -24,10 +22,10 @@ To run a docker image, a terminal window (or command prompt in windows) should b
 
 The docker files are available on [dockerhub](https://hub.docker.com/). it is possible to directly run the image from here.
 Take into account that the first time doing this, it will donwload all applicable files from the repository. This can take some time depending on your internet speed. After the first time, the container will be saved locally and it the machine will start almost immediately.
-It is strongly advised to only install the production version from dockerhub. The development version installs the latest github version of the packages and is therefore likely not up-to-date when installing from dockerhub. This version will also not be maintained on dockerhub in the future (see following section when you want to run the development version). To directly run from dockerhub, the following command can be issued to run the container:
+To directly run from dockerhub, the following command can be issued to run the container:
 
 ```bash
-docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.3
+docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.4
 ```
 
 Some explanation for the command:
@@ -89,7 +87,7 @@ On windows it can take some more effort to mount local drives. The following met
 - Enter the drive letter and a colon e.g. C: before the path to the local directories. The trailing path separator is optional. It works with or without the "/".
 - Including the /home/rstudio/docs path is essential in order to have access to the local directories (in /home/rstudio/docs).
 
-`docker run -v C:/Users/nholf/Documents:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixrdev:V0.1`
+`docker run -v C:/Users/nholf/Documents:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.4`
 
 You now have access to other directories in /home/rstudio in addition to examples and kitematic (i.e. analysis, data, models, scripts, ShinyMixR).
 
