@@ -25,7 +25,7 @@ Take into account that the first time doing this, it will donwload all applicabl
 To directly run from dockerhub, the following command can be issued to run the container:
 
 ```bash
-docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.4
+docker run -v /Users/richard/Documents/:/home/rstudio/docs -d -p 8787:8787 -e PASSWORD=nlmixr nlmixr/nlmixr2prod:V0.5
 ```
 
 Some explanation for the command:
