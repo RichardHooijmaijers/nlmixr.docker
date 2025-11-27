@@ -21,7 +21,7 @@ To run a docker image, a terminal window (or command prompt in windows) should b
 ### From dockerhub
 
 The docker files are available on [dockerhub](https://hub.docker.com/). it is possible to directly run the image from here.
-Take into account that the first time doing this, it will donwload all applicable files from the repository. This can take some time depending on your internet speed. After the first time, the container will be saved locally and it the machine will start almost immediately.
+Take into account that the first time doing this, it will download all applicable files from the repository. This can take some time depending on your internet speed. After the first time, the container will be saved locally and it the machine will start almost immediately.
 To directly run from dockerhub, the following command can be issued to run the container:
 
 ```bash
